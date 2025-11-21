@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url('/static/img/tcu_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* Remove all outer white boxes */
+  *:not(.quiz-card):not(.quiz-card *):not(style):not(script) {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .quiz-card {
+    background: rgba(255, 255, 255, 0.85);
+    color: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    backdrop-filter: blur(6px);
+  }
+
+  .page-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 576px) {
+    .dropdown-row {
+      flex-direction: column !important;
+    }
+    .dropdown-row > div {
+      width: 100% !important;
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+
+<div class="page-wrapper">
+  <div class="quiz-card text-center">
+    <h2 class="text-primary fw-bold mb-4">📚 Paste Text for Quiz</h2>
+
+    <form method="POST" action="/generate" class="text-start">
+      <div class="mb-3">
+        <label for="material" class="form-label fw-semibold">Material (text):</label>
+        <textarea
+          class="form-control border border-dark"
+          id="material"
+          name="material"
+          rows="6"
+          placeholder="Paste your notes or content here..."
+          style="resize: vertical; min-height: 150px;"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Combined row for Number of Questions and Language -->
+      <div class="mb-4 text-center">
+        <div class="d-flex justify-content-center align-items-center gap-3 dropdown-row">
+          <div>
+            <label for="num_questions" class="form-label fw-semibold mb-1">Questions:</label>
+            <select
+              class="form-select border border-dark text-center"
+              id="num_questions"
+              name="num_questions"
+              style="max-width: 120px;"
+            >
+              <option value="1">1</option>
+              <option value="5" selected>5</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="language" class="form-label fw-semibold mb-1">Language:</label>
+            <select
+              class="form-select border border-dark text-center"
+              id="language"
+              name="language"
+              style="max-width: 150px;"
+            >
+              <option value="English" selected>English</option>
+              <option value="中文">中文</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-4 py-2 w-100">
+          Generate Quiz
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

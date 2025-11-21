@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main Page</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-gray-100">
+
+  <h1 class="text-4xl sm:text-5xl font-bold mb-12 text-center">
+    🗃️ Welcome to My Project
+  </h1>
+
+  <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
+    <a
+      href="/quiz"
+      class="px-8 py-4 bg-blue-600 text-white rounded-2xl text-lg font-semibold shadow-lg hover:bg-blue-500 hover:scale-105 transition-transform duration-200"
+    >
+      🎓 Go to Qlick
+    </a>
+
+    <a
+      href="http://127.0.0.1:5001"
+      class="px-8 py-4 bg-green-600 text-white rounded-2xl text-lg font-semibold shadow-lg hover:bg-green-500 hover:scale-105 transition-transform duration-200"
+    >
+      📘 Go to Learn English System
+    </a>
+  </div>
+
+  <footer class="mt-16 text-gray-400 text-sm text-center">
+    © {{ year }} Felix Project
+  </footer>
+
+</body>
+</html>
